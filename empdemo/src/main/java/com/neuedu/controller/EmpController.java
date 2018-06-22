@@ -8,12 +8,12 @@ import com.neuedu.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 @Controller
@@ -71,6 +71,19 @@ public class EmpController {
         empService.updateEmp(emp);
         Integer pageNum = (Integer) httpSession.getAttribute("empPageNum");
         return "redirect:/emp/emplist?pageNum=" + pageNum;
+    }
+
+
+    /**
+     * 需要在这个方法里查询出所有员工信息并且转化为json格式响应给前台
+     */
+    @RequestMapping(value = {"/emps"})
+    @ResponseBody//告诉springmvc这响应不是页面是一个实体内容，你给我转化成json响应
+    @CrossOrigin//允许ajax跨域，在http协议上带一个键值对Access-Control-Allow-Origin
+    public List<Emp> emps(HttpServletResponse resp) throws IOException {
+        //1 数据查询了
+        List<Emp> empList = empService.listEmp();
+        return empList;
     }
 
 }
