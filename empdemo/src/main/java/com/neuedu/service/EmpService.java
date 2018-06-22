@@ -26,6 +26,8 @@ public interface EmpService {
      */
     int deleteEmpByIds(int[] ids);
 
+
+
     /**
      * 添加emp
      * @param emp

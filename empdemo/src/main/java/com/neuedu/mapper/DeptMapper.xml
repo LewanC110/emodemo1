@@ -9,5 +9,11 @@
     SELECT id,dname,location from e_dept
 </select>
 
+    <delete id="deleteDeptById">
+        DELETE from e_dept WHERE id IN
+        <foreach collection="array" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
 
 </mapper>

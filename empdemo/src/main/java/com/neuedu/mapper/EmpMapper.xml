@@ -29,6 +29,13 @@
             #{item}
         </foreach>
     </delete>
+    
+    <delete id="deleteEmpByDeptid">
+        DELETE from e_emp WHERE dept_id IN
+        <foreach collection="array" open="(" close=")" separator="," item="dept_id">
+            #{dept_id}
+        </foreach>
+    </delete>
 
     <select id="getCount" resultType="Integer">
         SELECT COUNT(id) FROM e_emp
