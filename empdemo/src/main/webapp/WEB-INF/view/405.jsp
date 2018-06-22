@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>405</title>
 </head>
 <body>
-    <jsp:forward page="/emp/emplist"></jsp:forward>
+    <h1>打你，瞎输入啥</h1>
 </body>
 </html>

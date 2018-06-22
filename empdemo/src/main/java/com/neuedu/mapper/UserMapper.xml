@@ -6,8 +6,12 @@
 <mapper namespace="com.neuedu.mapper.UserMapper">
 
 
-<select id="getUserByUserName" resultType="com.neuedu.entity.User">
-    SELECT id,username,password,headimg from e_user WHERE username = #{username}
-</select>
+    <select id="getUserByUserName" resultType="com.neuedu.entity.User">
+        SELECT id,username,password,headimg from e_user WHERE username = #{username}
+    </select>
+
+    <insert id="saveUser" >
+        INSERT INTO e_user (username,password,headimg) VALUES (#{user.username},#{user.password},#{user.headimg})
+    </insert>
 
 </mapper>

@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>404</title>
 </head>
 <body>
-    <jsp:forward page="/emp/emplist"></jsp:forward>
+    <img src="${pageContext.request.contextPath}/r/img/404.jpg">
 </body>
 </html>

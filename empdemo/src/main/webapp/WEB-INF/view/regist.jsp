@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row head"></div>
         <div class="row body">
-            <form class="form-horizontal"  action="${pageContext.request.contextPath}/user/regist" method="post" id="registForm">
+            <form class="form-horizontal"  action="${pageContext.request.contextPath}/user/regist" method="post" id="registForm" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="username" class="col-sm-2 control-label">姓名</label>
                     <div class="col-sm-6 username">
@@ -76,8 +76,8 @@
                             if(isRegist == "true"){
                                 //能注册
                                 $(".username").attr("class","col-sm-6 username has-success");
+                                $(".nameRemind").html("keyide");
                                 isUsername = true;
-                                $(".nameRemind").html("");
                             }else{
                                 //不能注册
                                 $(".username").attr("class","col-sm-6 username has-error");
@@ -137,7 +137,8 @@
                     }
                 }
             });
-            
+
+
             $(".sub").click(function () {
                 if(isPassword1 && isPassword && isUsername){
                     $("#registForm").submit();
