@@ -23,6 +23,13 @@ public class DeptServiceImpl implements DeptService {
     }
 
     @Override
+    public int saveDept(Dept dept) {
+        deptMapper.saveDept(dept);
+        int pageNum_D = deptMapper.getCount();
+        return pageNum_D % 10 == 0 ? pageNum_D / 10 : pageNum_D + 1;
+    }
+
+    @Override
     public int deleteDeptById(int[] ids) {
         int count = deptMapper.deleteDeptById(ids);
         empMapper.deleteEmpByDeptid(ids);

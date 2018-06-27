@@ -54,6 +54,7 @@
         <div class="col-sm-9">
             <button type="button" class="btn btn-primary addEmp">增加</button>
             <button type="button" class="btn btn-danger deleteAll">删除</button>
+            <button type="button" class="btn btn-success a_dept">部门</button>
         </div>
         <div class="col-sm-3">
             <nav aria-label="Page navigation">
@@ -119,6 +120,10 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/r/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     $(function () {
+        $(".a_dept").click(function () {
+            var path = "${pageContext.request.contextPath}/dept/deptlist";
+            location.href = path;
+        });
         //jquery的绑定方式来绑定一个点击事件
         $(".delete-btn").click(function () {
             //$(this)代表着获取当前触发这个方法的那个节点对象

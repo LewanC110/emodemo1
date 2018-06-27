@@ -5,9 +5,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neuedu.mapper.DeptMapper">
 
-<select id="listDept" resultType="com.neuedu.entity.Dept">
-    SELECT id,dname,location from e_dept
-</select>
+    <select id="listDept" resultType="com.neuedu.entity.Dept">
+        SELECT id,dname,location from e_dept
+    </select>
+    <select id="getCount" resultType="Integer">
+        SELECT COUNT(id) FROM e_dept
+    </select>
+
+    <insert id="saveDept">
+        INSERT into e_dept(dname,location) VALUES(#{dept.dname},#{dept.location})
+    </insert>
 
     <delete id="deleteDeptById">
         DELETE from e_dept WHERE id IN

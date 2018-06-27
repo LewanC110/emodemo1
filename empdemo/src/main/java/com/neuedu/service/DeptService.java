@@ -12,6 +12,8 @@ public interface DeptService {
      */
     List<Dept> listDept();
 
+    int saveDept( Dept dept);
+
     /**
      * 根据id数组删除dept
      * @param ids

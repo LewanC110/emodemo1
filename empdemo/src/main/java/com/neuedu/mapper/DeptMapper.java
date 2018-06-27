@@ -2,6 +2,7 @@ package com.neuedu.mapper;
 
 import com.neuedu.entity.Dept;
 import com.neuedu.entity.Emp;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,6 +14,9 @@ public interface DeptMapper {
      */
     List<Dept> listDept();
 
+    int getCount();
+
+    int saveDept(@Param("dept") Dept dept);
     /**
      * 根据id数组删除dept
      * @param ids

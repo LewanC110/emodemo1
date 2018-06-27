@@ -41,8 +41,26 @@
         </div>
         <div class="row">
             <div class="col-sm-9">
-                <button type="button" class="btn btn-primary">增加</button>
-                <button type="button" class="btn btn-danger delete-all">删除</button>
+                <ul class="list-inline">
+                    <li><button type="button" class="btn btn-primary addDeptView">增加</button></li>
+                    <li><button type="button" class="btn btn-danger delete-all">删除</button></li>
+                    <li><button type="button" class="btn btn-success a_demp">员工</button></li>
+                    <li>
+                        <form method="post" id="importForm" action="${pageContext.request.contextPath}/dept/importdept" enctype="multipart/form-data">
+                            <input type="file" name="file">
+                            <button type="button" class="btn btn-info" id="import">上传</button>
+                        </form>
+                    </li>
+                    <li><button type="button" class="btn btn-info exportdata">下载</button></li>
+
+                </ul>
+
+
+
+
+
+
+                </p>
             </div>
             <div class="col-sm-3">
                 <nav aria-label="Page navigation">
@@ -89,6 +107,23 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/r/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(function () {
+            $(".exportdata").click(function () {
+                var path = "${pageContext.request.contextPath}/dept/exportdata";
+                location.href = path;
+            });
+
+            $("#import").click(function () {
+                $("#importForm").submit();
+            });
+            $(".addDeptView").click(function () {
+                var path = "${pageContext.request.contextPath}/dept/addDeptView";
+                location.href = path;
+            });
+
+            $(".a_demp").click(function () {
+                var path = "${pageContext.request.contextPath}/emp/emplist";
+                location.href = path;
+            });
             $(".delete-one").click(function () {
                 var id = $(this).attr("delete-id");
                 var path = "${pageContext.request.contextPath}/dept/deleteDeptById?id=" + id;
